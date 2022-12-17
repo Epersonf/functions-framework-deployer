@@ -1,0 +1,25 @@
+{
+  "name": "functions-framework-deployer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "deploy_function.js",
+  "scripts": {
+    "deploy": "node deploy_function.js",
+    "delete": "node delete_function.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Epersonf/functions-framework-deployer.git"
+  },
+  "keywords": [
+    "google-cloud-platform",
+    "cloud-functions",
+    "functions-framework"
+  ],
+  "author": "Epersonf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Epersonf/functions-framework-deployer/issues"
+  },
+  "homepage": "https://github.com/Epersonf/functions-framework-deployer#readme"
+}
