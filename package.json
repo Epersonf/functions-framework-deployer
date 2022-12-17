@@ -8,6 +8,7 @@
     "deploy": "node deploy_function.js",
     "delete": "node delete_function.js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Epersonf/functions-framework-deployer.git"

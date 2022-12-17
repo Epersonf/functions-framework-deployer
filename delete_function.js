@@ -1,14 +1,21 @@
 // @ts-check
 
 import { exec } from "child_process";
-import functionInfo from "./function_info.json";
+// @ts-ignore
+import functionInfo from "../../function_info.json" assert { type: "json" };
 
-const stage = process.argv.find((arg) => arg.startsWith("--stage="))?.split("=")[1] || "dev";
+if (functionInfo) {
 
-const functionName = `${stage}-${functionInfo.name}`;
+  const stage = process.argv.find((arg) => arg.startsWith("--stage="))?.split("=")[1] || "dev";
 
-const command = `gcloud functions delete ${functionName} --gen2 --region ${functionInfo.region}`
+  const functionName = `${stage}-${functionInfo.name}`;
 
-console.log(`Deleting function ${functionName} with command: ${command}`);
+  const command = `gcloud functions delete ${functionName} --gen2 --region ${functionInfo.region}`
 
-exec(command);
+  console.log(`Deleting function ${functionName} with command: ${command}`);
+
+  exec(command);
+
+} else {
+  console.log("No function_info.json found in the root of the project. Run the init command first.");
+}
