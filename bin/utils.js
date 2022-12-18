@@ -7,6 +7,15 @@ import { readFileSync, appendFileSync, } from "fs";
  */
 function awaitChildProcess(childProcess) {
   return new Promise((resolve, _) => {
+
+    childProcess.stdout?.on("data", (data) => {
+      console.log(data);
+    });
+
+    childProcess.stderr?.on("data", (data) => {
+      console.log(data);
+    });
+    
     childProcess.on("close", (code) => {
       resolve();
     });

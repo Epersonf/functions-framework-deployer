@@ -25,10 +25,6 @@ const deployFunction = async () => {
 
     const childProcess = exec(command);
 
-    childProcess.on("data", (data) => {
-      console.log(data);
-    });
-
     awaitChildProcess(childProcess);
 
   } else {
