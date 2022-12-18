@@ -1,12 +1,12 @@
 // @ts-check
 
 import { exec } from "child_process";
-import { awaitChildProcess } from "../utils.js";
+import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 
 const deleteFunction = async () => {
   // @ts-ignore
-  const functionInfo = await import(`${process.cwd}/function_info.json`);
+  const functionInfo = readFunctionInfo();
 
   if (functionInfo) {
 

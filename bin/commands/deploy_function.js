@@ -5,7 +5,7 @@ import { awaitChildProcess } from "../utils.js";
 
 const deployFunction = async () => {
   // @ts-ignore
-  const functionInfo = await import(`${process.cwd}/function_info.json`);
+  const functionInfo = readFunctionInfo();
 
   if (functionInfo) {
 

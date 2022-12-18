@@ -1,6 +1,6 @@
 // @ts-check
 import { createInterface } from 'readline';
-import { appendFile } from 'fs';
+import { saveFunctionInfo } from '../utils';
 
 const init = async () => {
 
@@ -58,10 +58,7 @@ const init = async () => {
 
   rl.close();
 
-  appendFile("./function_info.json", JSON.stringify(template, null, 2), (err) => {
-    if (err) throw err;
-    console.log("Your function_info.json was created successfully!");
-  });
+  saveFunctionInfo(template);
 
 }
 
