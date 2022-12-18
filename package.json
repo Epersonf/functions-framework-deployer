@@ -3,10 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "deploy_function.js",
-  "scripts": {
-    "init": "node init.js",
-    "deploy": "node deploy_function.js",
-    "delete": "node delete_function.js"
+  "bin": {
+    "functions_framework_deployer": "bin/functions_framework_deployer.js"
   },
   "type": "module",
   "repository": {
