@@ -6,13 +6,9 @@ import { readFileSync, appendFileSync, } from "fs";
  * @returns {Promise<void>}
  */
 function awaitChildProcess(childProcess) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _) => {
     childProcess.on("close", (code) => {
-      if (code === 0) {
-        resolve();
-      } else {
-        reject();
-      }
+      resolve();
     });
   });
 }
