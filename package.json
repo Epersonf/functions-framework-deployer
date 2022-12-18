@@ -4,7 +4,7 @@
   "description": "",
   "main": "deploy_function.js",
   "bin": {
-    "functions_framework_deployer": "bin/functions_framework_deployer.js"
+    "functions-framework-deployer": "bin/functions_framework_deployer.js"
   },
   "type": "module",
   "repository": {
