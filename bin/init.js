@@ -41,7 +41,8 @@ const init = async () => {
     template.source = await it.next() || template.source;
 
     console.log(`Type the params of your function separated by " ": (${template["params"]})`);
-    template.params = (await it.next()).split(" ") || template.params;
+    const params = await it.next();
+    template.params = params ? params.split(" ") : template.params;
 
     console.log(`Here is your function_info.json:\n${template}`);
     console.log(`\nIs that correct? (y/n)`);
