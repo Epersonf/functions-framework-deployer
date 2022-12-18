@@ -1,10 +1,9 @@
 // @ts-check
 
 import { exec } from "child_process";
-import { awaitChildProcess } from "../utils.js";
+import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 const deployFunction = async () => {
-  // @ts-ignore
   const functionInfo = readFunctionInfo();
 
   if (functionInfo) {

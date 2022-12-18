@@ -5,7 +5,6 @@ import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 
 const deleteFunction = async () => {
-  // @ts-ignore
   const functionInfo = readFunctionInfo();
 
   if (functionInfo) {
