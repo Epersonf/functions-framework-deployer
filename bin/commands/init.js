@@ -1,6 +1,6 @@
 // @ts-check
 import { createInterface } from 'readline';
-import { saveFunctionInfo } from '../utils';
+import { saveFunctionInfo } from '../utils.js';
 
 const init = async () => {
 
