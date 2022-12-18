@@ -4,7 +4,7 @@ import { exec } from "child_process";
 
 const deployFunction = async () => {
   // @ts-ignore
-  const functionInfo = await import("../../function_info.json");
+  const functionInfo = await import("./function_info.json");
 
   if (functionInfo) {
 
