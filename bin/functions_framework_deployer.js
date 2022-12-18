@@ -1,7 +1,7 @@
 #! /usr/bin/env node
-import init from "./init";
-import deleteFunction from "./delete_function";
-import deployFunction from "./deploy_function";
+import init from "./init.js";
+import deployFunction from "./deploy_function.js";
+import deleteFunction from "./delete_function.js";
 
 const arg = process.argv[2];
 

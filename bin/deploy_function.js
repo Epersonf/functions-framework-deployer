@@ -1,10 +1,10 @@
 // @ts-check
 
 import { exec } from "child_process";
-// @ts-ignore
-import functionInfo from "../../function_info.json" assert { type: "json" };
 
 const deployFunction = async () => {
+  // @ts-ignore
+  const functionInfo = await import("../../function_info.json");
 
   if (functionInfo) {
 
