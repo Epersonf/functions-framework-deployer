@@ -1,10 +1,10 @@
 {
-  "name": "functions-framework-deployer",
+  "name": "ff-deployer",
   "version": "1.0.0",
   "description": "",
   "main": "deploy_function.js",
   "bin": {
-    "functions-framework-deployer": "bin/functions_framework_deployer.js"
+    "ff-deployer": "bin/functions_framework_deployer.js"
   },
   "type": "module",
   "repository": {
