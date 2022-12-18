@@ -19,7 +19,7 @@ const deployFunction = async () => {
   --source=${functionInfo.source}
   --set-env-vars STAGE=${stage}
   --entry-point=${functionInfo.handler}
-  ${functionInfo.params.join(" ")}`.replace("\n", " ")
+  ${functionInfo.params.join(" ")}`.replace(/( +(?= ))|\n/g, " ")
 
     console.log(`Deploying function ${functionInfo.name} with command: ${command}`);
 
