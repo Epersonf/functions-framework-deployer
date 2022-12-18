@@ -13,7 +13,7 @@ const deleteFunction = async () => {
 
     const functionName = `${stage}-${functionInfo.name}`;
 
-    const command = `gcloud functions delete ${functionName} --gen2 --region ${functionInfo.region}`
+    const command = `gcloud functions delete ${functionName} --gen2 --region ${functionInfo.region}`.replace("\n", " ")
 
     console.log(`Deleting function ${functionName} with command: ${command}`);
 
