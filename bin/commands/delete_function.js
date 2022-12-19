@@ -5,9 +5,8 @@ import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 
 const deleteFunction = async () => {
-  const functionInfo = readFunctionInfo();
-
-  if (functionInfo) {
+  try {
+    const functionInfo = readFunctionInfo();
 
     const stage = process.argv.find((arg) => arg.startsWith("--stage="))?.split("=")[1] || "dev";
 
@@ -21,7 +20,7 @@ const deleteFunction = async () => {
 
     awaitChildProcess(childProcess);
 
-  } else {
+  } catch (e) {
     console.log("No function_info.json found in the root of the project. Run the init command first.");
   }
 
