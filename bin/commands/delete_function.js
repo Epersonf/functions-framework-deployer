@@ -6,15 +6,18 @@ import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 const deleteFunction = async () => {
   try {
-    const functionInfo = readFunctionInfo();
-
     const stage = process.argv.find((arg) => arg.startsWith("--stage="))?.split("=")[1] || "dev";
 
-    const functionName = `${stage}-${functionInfo.name}`;
+    const ogFunctionInfo = readFunctionInfo();
 
-    const command = `gcloud functions delete ${functionName} --gen2 --region ${functionInfo.region}`.replace(/( +(?= ))|\n/g, " ")
+    const functionInfo = {
+      ...ogFunctionInfo,
+      ...ogFunctionInfo.overrides[stage]
+    };
 
-    console.log(`Deleting function ${functionName} with command: ${command}`);
+    const command = `gcloud functions delete ${functionInfo.name} --project ${functionInfo.project} --gen2 --region ${functionInfo.region}`.replace(/( +(?= ))|\n/g, " ")
+
+    console.log(`Deleting function ${functionInfo.name} with command: ${command}`);
 
     const childProcess = exec(command);
 

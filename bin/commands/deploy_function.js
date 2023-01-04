@@ -5,14 +5,18 @@ import { awaitChildProcess, readFunctionInfo } from "../utils.js";
 
 const deployFunction = async () => {
   try {
-    const functionInfo = readFunctionInfo();
-
     const stage = process.argv.find((arg) => arg.startsWith("--stage="))?.split("=")[1] || "dev";
 
-    const functionName = `${stage}-${functionInfo.name}`;
+    const ogFunctionInfo = readFunctionInfo();
 
-    const command = `gcloud functions deploy ${functionName}
+    const functionInfo = {
+      ...ogFunctionInfo,
+      ...ogFunctionInfo.overrides[stage]
+    };
+
+    const command = `gcloud functions deploy ${functionInfo.name}
   --gen2
+  --project=${functionInfo.project}
   --runtime=${functionInfo.runtime}
   --region=${functionInfo.region}
   --source=${functionInfo.source}

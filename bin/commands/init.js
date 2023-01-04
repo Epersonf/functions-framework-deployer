@@ -17,13 +17,22 @@ const init = async () => {
     template = {
       "name": "my-first-function",
       "handler": "main",
-      "region": "southamerica-east1",
+      "region": "us-east1",
       "runtime": "nodejs16",
       "source": ".",
+      "project": "my-first-project",
       "params":  [
         "--trigger-http",
         "--allow-unauthenticated"
-      ]
+      ],
+      "overrides": {
+        "hml": {
+          "project": "my-first-project-hml",
+        },
+        "prod": {
+          "project": "my-first-project-prod",
+        }
+      }
     };
 
     console.log(`Type the name of your function: (${template["name"]})`);
@@ -40,6 +49,9 @@ const init = async () => {
 
     console.log(`Type the source of your function: (${template["source"]})`);
     template.source = (await it.next()).value || template.source;
+
+    console.log(`Type the default project of your function: (${template["project"]})`);
+    template.project = (await it.next()).value || template.project;
 
     console.log(`Type the params of your function separated by " ": (${template["params"]})`);
     const params = (await it.next()).value;
