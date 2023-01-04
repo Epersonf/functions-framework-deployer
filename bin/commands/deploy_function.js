@@ -20,7 +20,7 @@ const deployFunction = async () => {
   --runtime=${functionInfo.runtime}
   --region=${functionInfo.region}
   --source=${functionInfo.source}
-  --set-env-vars STAGE=${stage}
+  --set-env-vars STAGE=${stage},PROJECT=${functionInfo.project}
   --entry-point=${functionInfo.handler}
   ${functionInfo.params.join(" ")}`.replace(/( +(?= ))|\n/g, " ").replace("${stage}", stage)
 
