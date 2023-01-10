@@ -16,10 +16,10 @@ const deployFunction = async () => {
 
     const command = `gcloud functions deploy ${functionInfo.name}
   --gen2
-  --project=${functionInfo.project}
-  --runtime=${functionInfo.runtime}
-  --region=${functionInfo.region}
-  --source=${functionInfo.source}
+  --project=${functionInfo.project.replace("${stage}", stage)}
+  --runtime=${functionInfo.runtime.replace("${stage}", stage)}
+  --region=${functionInfo.region.replace("${stage}", stage)}
+  --source=${functionInfo.source.replace("${stage}", stage)}
   --set-env-vars STAGE=${stage},PROJECT=${functionInfo.project}
   --entry-point=${functionInfo.handler}
   ${functionInfo.params.join(" ")}`.replace(/( +(?= ))|\n/g, " ").replace("${stage}", stage)

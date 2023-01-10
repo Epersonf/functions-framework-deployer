@@ -1,4 +1,4 @@
-# functions-framework-deployer
+# Package ff-deployer
 
 This is a simple tool to deploy a Functions Framework based application to Cloud Run.
 
