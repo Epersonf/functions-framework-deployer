@@ -20,7 +20,7 @@ const init = async () => {
       "region": "us-east1",
       "runtime": "nodejs16",
       "source": ".",
-      "project": "my-first-project",
+      "project": "my-first-project-dev",
       "params":  [
         "--trigger-http",
         "--allow-unauthenticated"
