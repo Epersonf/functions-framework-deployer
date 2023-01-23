@@ -30,7 +30,7 @@ const deployFunction = async () => {
 
     awaitChildProcess(childProcess);
   } catch (e) {
-    console.log("No function_info.json found in the root of the project. Run the init command first.");
+    console.log("Invalid function_info.json, or no function_info.json found in the root of the project. Run the init command to generate a valid function_info.json.");
   }
 
 }

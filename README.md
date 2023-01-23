@@ -49,3 +49,20 @@ The `functions_info.json` file has the following configuration:
 - `project`: The default project where your function will be deployed.
 - `params`: The parameters that will be passed to the `gcloud run deploy` command.
 - `overrides`: This is an object that contains the configuration for each environment. The key of each object is the name of the environment. The value of each object is the configuration for that environment. The configuration for each environment can be the same as the default configuration or it can be different.
+
+## Arguments
+
+When running `npx ff-deployer deploy` or `npx ff-deployer delete` you can pass the following arguments:
+
+- `--stage`: The stage of your application. This will be used to get the configuration for that stage from the `overrides` object. If you don't pass this argument, or the stage doesn't exist in the `overrides` object, the default configuration will be used.
+
+## Variables
+
+The `functions_info.json` file supports variables, like the reserved word ${stage}, that will be replaced by the value of the stage passed in the command line. For example, if you pass `--stage=hml` in the command line, the value of the project will be replaced by the value of the project in the `hml` object.
+
+## Environment variables
+
+There are some environment variables that are deployed to the Cloud Run service. These variables are:
+
+- `STAGE`: The stage of the application. This is the value of the stage passed in the command line.
+- `PROJECT`: The project where the application is deployed. This is the value of the project in the configuration file.
