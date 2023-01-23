@@ -8,7 +8,7 @@ To install this tool, run: `npm install ff-deployer`
 
 After installing it you can run: `npx ff-deployer init`
 
-This will ask some questions and create a `functions_info.json` file in your project. This file contains the configuration for your deployment similar to that:
+This will ask some questions and create a `function_info.json` file in your project. This file contains the configuration for your deployment similar to that:
 
 ```json
 {
@@ -39,7 +39,7 @@ And you can delete your deployment with `npx ff-deployer delete`.
 
 ## Configuration
 
-The `functions_info.json` file has the following configuration:
+The `function_info.json` file has the following configuration:
 
 - `name`: The name of your function. This will be used to create the Cloud Run service.
 - `handler`: The name of the function to be executed. This is the name of the function exported in your `index.js` file.
@@ -58,7 +58,7 @@ When running `npx ff-deployer deploy` or `npx ff-deployer delete` you can pass t
 
 ## Variables
 
-The `functions_info.json` file supports variables, like the reserved word ${stage}, that will be replaced by the value of the stage passed in the command line. For example, if you pass `--stage=hml` in the command line, the value of the project will be replaced by the value of the project in the `hml` object.
+The `function_info.json` file supports variables, like the reserved word ${stage}, that will be replaced by the value of the stage passed in the command line. For example, if you pass `--stage=hml` in the command line, the value of the project will be replaced by the value of the project in the `hml` object.
 
 ## Environment variables
 
