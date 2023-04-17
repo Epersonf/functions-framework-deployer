@@ -14,17 +14,19 @@ const deployFunction = async () => {
       ...ogFunctionInfo.overrides[stage]
     };
 
-    const command = `gcloud functions deploy ${functionInfo.name}
+    let command = `gcloud functions deploy ${functionInfo.name}
   --gen2
-  --project=${functionInfo.project.replace("${stage}", stage)}
-  --runtime=${functionInfo.runtime.replace("${stage}", stage)}
-  --region=${functionInfo.region.replace("${stage}", stage)}
-  --source=${functionInfo.source.replace("${stage}", stage)}
+  --project=${functionInfo.project}
+  --runtime=${functionInfo.runtime}
+  --region=${functionInfo.region}
+  --source=${functionInfo.source}
   --set-env-vars STAGE=${stage},PROJECT=${functionInfo.project}
   --entry-point=${functionInfo.handler}
-  ${functionInfo.params.join(" ")}`.replace(/( +(?= ))|\n/g, " ").replace("${stage}", stage)
+  ${functionInfo.params.join(" ")}`.replace(/( +(?= ))|\n/g, " ");
 
-    console.log(`Deploying function ${functionInfo.name} with command: ${command}`);
+    command = command.replace("${stage}", stage);
+
+    console.log(`Deploying function ${functionInfo.name.replace("${stage}", stage)} with command: ${command}`);
 
     const childProcess = exec(command);
 

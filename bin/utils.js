@@ -38,7 +38,7 @@ function saveFunctionInfo(functionInfo) {
 function readFunctionInfo() {
   let rawData = readFileSync(functionInfoPath);
   let functionInfo = JSON.parse(rawData.toString());
-  if (!functionInfo.overrides) return functionInfo.overrides = {};
+  if (!functionInfo.overrides) functionInfo.overrides = {};
   return functionInfo;
 }
 

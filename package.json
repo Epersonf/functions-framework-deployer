@@ -1,6 +1,6 @@
 {
   "name": "ff-deployer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "bin": {
     "ff-deployer": "bin/functions_framework_deployer.js"

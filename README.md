@@ -60,6 +60,8 @@ When running `npx ff-deployer deploy` or `npx ff-deployer delete` you can pass t
 
 The `function_info.json` file supports variables, like the reserved word ${stage}, that will be replaced by the value of the stage passed in the command line. For example, if you pass `--stage=hml` in the command line, the value of the project will be replaced by the value of the project in the `hml` object.
 
+If you add ${stage} in the `name` field, for example '${stage}-my-first-function', the name of the Cloud Run service will be 'hml-my-first-function'.
+
 ## Environment variables
 
 There are some environment variables that are deployed to the Cloud Run service. These variables are:

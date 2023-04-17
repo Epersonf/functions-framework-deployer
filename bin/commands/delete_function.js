@@ -12,19 +12,21 @@ const deleteFunction = async () => {
 
     const functionInfo = {
       ...ogFunctionInfo,
-      ...ogFunctionInfo.overrides[stage]
+      ...ogFunctionInfo.override[stage]
     };
 
-    const command = `gcloud functions delete ${functionInfo.name} --project ${functionInfo.project} --gen2 --region ${functionInfo.region}`.replace(/( +(?= ))|\n/g, " ")
+    let command = `gcloud functions delete ${functionInfo.name} --project ${functionInfo.project} --gen2 --region ${functionInfo.region}`.replace(/( +(?= ))|\n/g, " ")
 
-    console.log(`Deleting function ${functionInfo.name} with command: ${command}`);
+    command = command.replace("${stage}", stage);
+
+    console.log(`Deleting function ${functionInfo.name.replace("${stage}", stage)} with command: ${command}`);
 
     const childProcess = exec(command);
 
     awaitChildProcess(childProcess);
 
   } catch (e) {
-    console.log("No function_info.json found in the root of the project. Run the init command first.");
+    console.log("Invalid function_info.json, or no function_info.json found in the root of the project. Run the init command to generate a valid function_info.json.");
   }
 
 }
